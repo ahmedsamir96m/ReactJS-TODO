@@ -1,17 +1,18 @@
 import "./App.css";
 import React, { useState } from "react";
 import Todos from "./Components/Todos/Todos";
+import TodoForm from "./Components/TodoForm/TodoForm";
 
 const App = (props) => {
   const [todosList, setTodosList] = useState("");
 
-  const addTodoItem = () => {
+  const addTodoItem = (newItem) => {
     const ma = Math.random() * 10;
     setTodosList([
       ...todosList,
       {
-        item: `item number ${ma}`,
-        desc: `new item description ma`,
+        title: newItem.title,
+        desc: newItem.desc,
         id: ma,
       },
     ]);
@@ -26,6 +27,8 @@ const App = (props) => {
 
   return (
     <div className="App">
+      <TodoForm addTodoItem={addTodoItem} />
+
       <Todos
         todos={todosList}
         addTodoItem={addTodoItem}

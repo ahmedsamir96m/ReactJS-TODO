@@ -13,12 +13,10 @@ const Todos = (props) => {
               Add new item
             </button>
             {todos.map((todo) => {
-              console.log(todo);
               return (
                 <div className="todo--item" key={todo.id}>
-                  <div>{todo.item}</div>
+                  <div>{todo.title}</div>
                   <div>{todo.desc}</div>
-                  <div>{todo.id}</div>
                   <button
                     className="todos--delete"
                     onClick={() => {
